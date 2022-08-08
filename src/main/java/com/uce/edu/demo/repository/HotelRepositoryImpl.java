@@ -22,8 +22,8 @@ public class HotelRepositoryImpl implements IHotelRepository {
 	public List<Hotel> buscarHotelInnerJoin(String tipoHabitacion) {
 		// TODO Auto-generated method stub
 		TypedQuery<Hotel> myQuery = this.entityManager.createQuery(
-				"SELECT h FROM Hotel h JOIN h.habitaciones ha WHERE ha.tipo =: datoTipoHabitacion", Hotel.class);
-		myQuery.setParameter("datoTipoHabitacion", tipoHabitacion);
+				"SELECT h FROM Hotel h JOIN h.habitaciones ha WHERE ha.tipo =: tipoHabitacion", Hotel.class);
+		myQuery.setParameter("tipoHabitacion", tipoHabitacion);
 
 		List<Hotel> hoteles = myQuery.getResultList();
 		for (Hotel h : hoteles) {
@@ -59,7 +59,7 @@ public class HotelRepositoryImpl implements IHotelRepository {
 	}
 
 	@Override
-	public List<Hotel> buscarHotelOuterJoinRigth(String tipoHabitacion) {
+	public List<Hotel> buscarHotelOuterJoinRight(String tipoHabitacion) {
 		// TODO Auto-generated method stub
 		TypedQuery<Hotel> myQuery = this.entityManager.createQuery(
 				"SELECT h FROM Hotel h RIGHT JOIN h.habitaciones ha WHERE ha.tipo = :tipoHabitacion", Hotel.class);

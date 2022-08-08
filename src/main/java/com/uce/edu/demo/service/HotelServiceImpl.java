@@ -39,9 +39,9 @@ public class HotelServiceImpl implements IHotelService {
 	}
 
 	@Override
-	public List<Hotel> buscarHotelOuterJoinRigth(String tipoHabitacion) {
+	public List<Hotel> buscarHotelOuterJoinRight(String tipoHabitacion) {
 		// TODO Auto-generated method stub
-		return this.hotelRepository.buscarHotelOuterJoinRigth(tipoHabitacion);
+		return this.hotelRepository.buscarHotelOuterJoinRight(tipoHabitacion);
 	}
 
 	@Override

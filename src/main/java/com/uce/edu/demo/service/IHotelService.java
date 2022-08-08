@@ -10,7 +10,7 @@ public interface IHotelService {
 	public List<Hotel> HotelInnerJoin();
 	public List<Hotel> buscarHotelOuterJoinLeft(String tipoHabitacion);
 	public List<Hotel> buscarHotelOuterJoinLeft();
-	public List<Hotel> buscarHotelOuterJoinRigth(String tipoHabitacion);
+	public List<Hotel> buscarHotelOuterJoinRight(String tipoHabitacion);
 	public List<Hotel> buscarHotelJoinWhere(String tipoHabitacion);
 	public List<Hotel> buscarHotelJoinFetch(String tipoHabitacion);
 	
