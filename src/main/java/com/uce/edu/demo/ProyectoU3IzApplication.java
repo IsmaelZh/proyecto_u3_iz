@@ -54,7 +54,7 @@ public class ProyectoU3IzApplication implements CommandLineRunner {
 		}
 
 		// Right
-		LOG.info("JOIN RIGTH");
+		LOG.info("JOIN RIGHT");
 		List<Factura> listaFacturaRigth = this.facturaService.buscarFacturaOuterJoinRight(6);
 		for (Factura f : listaFacturaRigth) {
 			LOG.info("Factura: " + f.getFecha() + " " + f.getNumero());
