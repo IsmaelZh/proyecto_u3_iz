@@ -37,6 +37,11 @@ public class CuentaBancaria {
 	@OneToMany(mappedBy = "cuentaDestino")
 	private List<Transferencia> transferenciasDestino;
 
+	@Override
+	public String toString() {
+		return "CuentaBancaria [id=" + id + ", numero=" + numero + ", saldo=" + saldo + ", tipo=" + tipo + "]";
+	}
+
 	//Set y Get 
 	public Integer getId() {
 		return id;

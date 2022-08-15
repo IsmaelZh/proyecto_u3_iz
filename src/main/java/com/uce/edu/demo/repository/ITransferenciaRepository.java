@@ -6,4 +6,6 @@ public interface ITransferenciaRepository {
 
 	public void insertar(Transferencia transferencia);
 	
+	
+	
 }
