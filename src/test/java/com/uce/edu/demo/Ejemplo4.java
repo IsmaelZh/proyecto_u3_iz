@@ -1,7 +1,6 @@
 package com.uce.edu.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +22,7 @@ public class Ejemplo4 {
 	private HotelRepositoryImpl hotelRepositoryImpl;
 
 	@Test
+	@Rollback(true)
 	public void testActualizarHotel() {
 
 		Hotel hotel = new Hotel();
