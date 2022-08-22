@@ -24,7 +24,7 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 	private ICuentaBancariaRepository cuentaBancariaRepo;
 
 	@Override
-	@Transactional(value = TxType.REQUIRES_NEW)
+	@Transactional(value = TxType.REQUIRED)
 	public void realizarTransferencia(String CtaOrigen, String CtaDestino, BigDecimal monto) {
 		// encontramos las cuentas
 		CuentaBancaria origen = this.cuentaBancariaRepo.buscarPorNumero(CtaOrigen);

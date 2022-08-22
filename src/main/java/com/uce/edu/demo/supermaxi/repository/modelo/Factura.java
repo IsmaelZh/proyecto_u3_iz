@@ -1,15 +1,16 @@
-package com.uce.edu.demo.repository.modelo;
+package com.uce.edu.demo.supermaxi.repository.modelo;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -30,15 +31,13 @@ public class Factura {
 	@Column(name = "fact_numero")
     private String numero;
 	
-	@OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<DetalleFactura> detalles;
-		
-	@Override
-	public String toString() {
-		return "Factura [id=" + id + ", fecha=" + fecha + ", numero=" + numero + ", detalles=" + detalles + "]";
-	}
+	@ManyToOne
+	@JoinColumn(name = "fact_clie_id")
+	private Cliente cliente;
 
-	//Set y Get 
+	@OneToMany(mappedBy = "factura", fetch = FetchType.EAGER)
+	private List<DetalleFactura> detalles;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -61,6 +60,14 @@ public class Factura {
 
 	public void setNumero(String numero) {
 		this.numero = numero;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public List<DetalleFactura> getDetalles() {
