@@ -3,8 +3,7 @@ package com.uce.edu.demo;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +14,7 @@ import com.uce.edu.demo.supermaxi.service.IGestorFacturaService;
 @SpringBootApplication
 public class ProyectoU3IzApplication implements CommandLineRunner {
 
-	private static final Logger LOG = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	private static Logger LOG = Logger.getLogger(ProyectoU3IzApplication.class);
 	
 	@Autowired
 	private IGestorFacturaService gestorFacturaService;
@@ -32,7 +31,7 @@ public class ProyectoU3IzApplication implements CommandLineRunner {
         codigos.add("0002");
         codigos.add("0003");
         
-        this.gestorFacturaService.compraProcductos("301166596", "1266", codigos);
+        this.gestorFacturaService.compraProcductos("0302325963", "1266", codigos);
 
 
 	}
