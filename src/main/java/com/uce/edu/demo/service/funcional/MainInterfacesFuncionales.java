@@ -5,47 +5,87 @@ import org.apache.log4j.Logger;
 public class MainInterfacesFuncionales {
 
 	private static Logger LOG = Logger.getLogger(MainInterfacesFuncionales.class);
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//SUPLIER
-		//Clases
+		
+		ConsumoMetodosHighOrder metodosHO = new ConsumoMetodosHighOrder();
+		
+		// SUPLIER
+		// Clases
 		IPersonaSupplier<String> supplier = new PersonaSupplierImpl();
 		LOG.info("Supplier Clase: " + supplier.getNombre());
-		
+
 		IPersonaSupplier<String> supplierTE = new PersonaSupplierTEImpl();
 		LOG.info("Supplier Clase: " + supplierTE.getNombre());
-		
-		//Lambdas
-		IPersonaSupplier<String> supplierLambda = ()-> "Ismael 2";
+
+		// Lambdas
+		IPersonaSupplier<String> supplierLambda = () -> "Ismael 2";
 		LOG.info("Supplier Lambda: " + supplierLambda.getNombre());
-		
-		IPersonaSupplier<String> supplierLambdaTE = ()-> "Eddy TE2";
+
+		IPersonaSupplier<String> supplierLambdaTE = () -> "Eddy TE2";
 		LOG.info("Supplier Lambda: " + supplierLambdaTE.getNombre());
+
+		//Metodos High Order
+		String valorHO = metodosHO.consumirSupplier(()-> "Hola mundo");
+		LOG.info("HO Supplier" + valorHO);
 		
-		//JAVA
-		
-		//CONSUMER
-		//Clases
+		String valorHO1 = metodosHO.consumirSupplier(()-> {
+			String valorConsultado = "1256522154";
+			return valorConsultado;}
+		);
+		LOG.info("HO Supplier" + valorHO1);
+		// JAVA
+
+		// CONSUMER
+		// Clases
 		IPersonaConsumer<String> consumerClase = new PersonaConsumerImpl();
 		consumerClase.accept("Prueba Consumer");
-		
-		//Lambdas
+
+		// Lambdas
 		IPersonaConsumer<String> consumerLambda = cadena -> System.out.println(cadena);
 		consumerLambda.accept("Prueba Consumer Lambda");
-		
-		//PREDICATE
-		//Clases
-		//Lambdas
-		
-		//FUNCTION
-		//Clases
-		//Lambdas
-		
-		//UNARY OPERATOR (FUNCTION)
-		//Clases
-		//Lambdas
-		}
-	
-}
 
+		// Metodos High Order 
+		metodosHO.consumirConsumer(valor -> System.out.println(valor), 2);
+		
+		// PREDICATE
+		// Clases
+		// Lambdas
+		IPersonaPredicate<String> predicateLambda = cadena -> cadena.contains("Z");
+		LOG.info("Perdicate Lambda: " + predicateLambda.evaluar("Zhindon"));
+		
+		// Metodos High Order 
+		boolean respuesta = metodosHO.consumirPredicate(cadena -> cadena.contains("Z"), "Zhindon");
+		LOG.info("HO PREDICATE: " + respuesta);
+		
+		// FUNCTION
+		// Clases
+		// Lambdas
+		IPersonaFunction<Integer, String> functionLambda = cadena -> {
+			Integer valor = Integer.parseInt(cadena);
+			Integer valorFinal = valor - 2;
+			return valorFinal;
+		};
+		LOG.info("Function Lambda: " + functionLambda.plicar("7"));
+
+		// Metodos High Order
+		String valorFinalHO = metodosHO.consumirFunction(valor -> {
+			String retorno = valor.toString()+"A";
+			return retorno;
+		}, 1);
+		LOG.info("HO Function: " + valorFinalHO);
+		
+		// UNARY OPERATOR (FUNCTION)
+		// Clases
+		// Lambdas
+		IPersonaUnaryOperator<String> unaryLambda = cadena -> {
+			String valorFinal = cadena.concat(" sufijo");
+			return valorFinal;
+		};
+
+		LOG.info("Unary Operator Lambda: " + unaryLambda.apply("Dennis"));
+
+	}
+
+}
