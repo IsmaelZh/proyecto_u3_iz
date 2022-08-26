@@ -15,14 +15,20 @@ public class ClienteRepositoryImpl implements IClienteRepository {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
+	@Override
+	public void insertar(Cliente cliente) {
+		// TODO Auto-generated method stub
+		this.entityManager.persist(cliente);
+	}
+
 	@Override
 	public Cliente buscarCedula(String numeroCedula) {
 		// TODO Auto-generated method stub
 		TypedQuery<Cliente> myTypedQuery = this.entityManager
-                .createQuery("SELECT c FROM Cliente c  WHERE c.numeroCedula = :numeroCedula  ", Cliente.class)
-                .setParameter("numeroCedula", numeroCedula);
-        return myTypedQuery.getSingleResult();
+				.createQuery("SELECT c FROM Cliente c  WHERE c.numeroCedula = :datoCedula", Cliente.class);
+		myTypedQuery.setParameter("datoCedula", numeroCedula);
+		return myTypedQuery.getSingleResult();
 	}
 
 }

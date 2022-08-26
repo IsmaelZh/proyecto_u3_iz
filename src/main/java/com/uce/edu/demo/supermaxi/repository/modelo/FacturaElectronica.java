@@ -20,20 +20,20 @@ public class FacturaElectronica {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fael_id_seq")
 	@SequenceGenerator(name = "fael_id_seq", sequenceName = "fael_id_seq", allocationSize = 1)
 	private Integer id;
-	
+
 	@Column(name = "fael_numero")
-    private String numero;
+	private String numero;
 
 	@Column(name = "fael_fecha")
-    private LocalDateTime fecha;	
-	
+	private LocalDateTime fecha;
+
 	@Column(name = "fael_monto")
 	private BigDecimal monto;
-	
-	@Column(name = "numero_items")
-	private String numeroItems;
 
-	//Set y Get
+	@Column(name = "numero_items")
+	private Integer numeroItems;
+
+	// Set y Get
 	public Integer getId() {
 		return id;
 	}
@@ -66,13 +66,12 @@ public class FacturaElectronica {
 		this.monto = monto;
 	}
 
-	public String getNumeroItems() {
+	public Integer getNumeroItems() {
 		return numeroItems;
 	}
 
-	public void setNumeroItems(String numeroItems) {
+	public void setNumeroItems(Integer numeroItems) {
 		this.numeroItems = numeroItems;
 	}
-	
-	
+
 }

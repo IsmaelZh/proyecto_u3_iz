@@ -11,10 +11,16 @@ import com.uce.edu.demo.supermaxi.repository.modelo.Producto;
 
 @Repository
 @Transactional
-public class ProductoRepositoryImpl implements IProductoRepository{
-	
+public class ProductoRepositoryImpl implements IProductoRepository {
+
 	@PersistenceContext
 	private EntityManager entityManager;
+
+	@Override
+	public void insertar(Producto producto) {
+		// TODO Auto-generated method stub
+		this.entityManager.persist(producto);
+	}
 
 	@Override
 	public Producto buscarCodigoBarras(String codigoBarras) {

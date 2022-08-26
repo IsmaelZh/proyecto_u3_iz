@@ -35,6 +35,7 @@ public class MainInterfacesFuncionales {
 			return valorConsultado;}
 		);
 		LOG.info("HO Supplier" + valorHO1);
+		
 		// JAVA
 
 		// CONSUMER
@@ -57,7 +58,7 @@ public class MainInterfacesFuncionales {
 		
 		// Metodos High Order 
 		boolean respuesta = metodosHO.consumirPredicate(cadena -> cadena.contains("Z"), "Zhindon");
-		LOG.info("HO PREDICATE: " + respuesta);
+		LOG.info("HO Predicate: " + respuesta);
 		
 		// FUNCTION
 		// Clases
