@@ -24,4 +24,6 @@ public class ConsumoMetodosHighOrder {
 		return funcion.plicar(valor);
 	}
 
+	
+	
 }
