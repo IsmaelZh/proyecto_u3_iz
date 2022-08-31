@@ -29,6 +29,7 @@ public class MainStreamParalelo {
 	private static String convertirIdAlumno(Integer id) {
 		try {
 			TimeUnit.MILLISECONDS.sleep(10);
+			//Logica de negocio
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
