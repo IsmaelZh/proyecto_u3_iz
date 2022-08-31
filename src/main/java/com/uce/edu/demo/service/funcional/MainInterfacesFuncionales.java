@@ -11,7 +11,7 @@ public class MainInterfacesFuncionales {
 	private static Logger LOG = Logger.getLogger(MainInterfacesFuncionales.class);
 
 	public static void imprimir (String cadena) {
-		LOG.info("Impresion" + cadena);
+		LOG.info("Impresion " + cadena);
 	}
 	
 	public static void main(String[] args) {

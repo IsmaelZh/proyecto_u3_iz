@@ -2,8 +2,6 @@ package com.uce.edu.demo.hilos.tradicional;
 
 import java.util.Arrays;
 
-import org.hibernate.internal.build.AllowSysOut;
-
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,13 +9,16 @@ public class Main {
 
 		long tiempoInicial = System.currentTimeMillis();
 		
-		Cajero cajero = new Cajero("Ismael", Arrays.asList("Pepito", "Mateo", "Manolo", "Maria"));
-		Cajero cajero2 = new Cajero("Jonas", Arrays.asList("Pepito2", "Mateo2", "Manolo2"));
-		Cajero cajero3= new Cajero("Victor", Arrays.asList("Pepito3", "Mateo3"));
+		System.out.println("Nombre Hilo: " + Thread.currentThread().getName());
+		Cajero cajero = new Cajero("Ismael", Arrays.asList("Pepito", "Mateo"));
+		Cajero cajero2 = new Cajero("Jonas", Arrays.asList("Pepito2", "Mateo2"));
+		Cajero cajero3 = new Cajero("Victor", Arrays.asList("Pepito3", "Mateo3"));
 		
 		PCCajero gestorAtencion = new PCCajero();
 		gestorAtencion.procesar(cajero);
+		
 		gestorAtencion.procesar(cajero2);
+		
 		gestorAtencion.procesar(cajero3);
 		
 		long tiempoFinal = System.currentTimeMillis();
